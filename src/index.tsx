@@ -5,7 +5,7 @@
 
 import ReactDOM from "react-dom";
 import App from "./App";
-import gsap from "gsap";
+import './styles/main.css';
 
 // Get the Root Element
 const rootElement = document.getElementById('root');

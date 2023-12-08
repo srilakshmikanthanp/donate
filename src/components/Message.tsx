@@ -3,6 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 /**
@@ -23,7 +24,7 @@ const Container = styled.div`
   height: 100%;
   text-align: center;
   font-size: 1.2rem;
-  padding: 1rem;
+  padding: 10px;
   justify-content: center;
   align-items: center;
 `;
@@ -31,10 +32,13 @@ const Container = styled.div`
 /**
  * Heart Component
  */
-export default function Message(props: MessageProps) {
+const Message = forwardRef<HTMLDivElement, MessageProps>((props, ref) => {
   return (
-    <Container {...props}>
+    <Container {...props} ref={ref}>
       {props.message}
     </Container>
   );
-}
+});
+
+// export
+export default Message;

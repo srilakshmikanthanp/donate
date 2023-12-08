@@ -3,8 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import { Tooltip } from 'react-tooltip';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 /**
@@ -12,6 +11,7 @@ import styled from 'styled-components';
  */
 export interface PayerProps extends React.HTMLAttributes<HTMLDivElement> {
   description: string;
+  url: string;
   icon: string;
 }
 
@@ -24,9 +24,8 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  padding: 10px;
   text-align: center;
-  font-size: 1.2rem;
-  padding: 1rem;
   justify-content: center;
   align-items: center;
 
@@ -36,14 +35,26 @@ const Container = styled.div`
 `;
 
 /**
- * Container
+ * Image
  */
-export default function Payer(props: PayerProps) {
-  // render
+const Image = styled.img`
+  max-height: 100%;
+  display: block;
+  max-width: 100%;
+`;
+
+/**
+ * Payer
+ */
+const Payer = forwardRef<HTMLDivElement, PayerProps>((props, ref) => {
   return (
-    <Container {...props} data-data-tooltip-id='payer' data-data-tooltip-content={props.description}>
-      <img src={props.icon} alt={props.description} />
-      <Tooltip id='payer' />
+    <Container {...props} data-tooltip-id='payer' data-tooltip-content={props.description} ref={ref}>
+      <a href={props.url} target='_blank' rel='noreferrer'>
+        <Image src={props.icon} alt={props.description} />
+      </a>
     </Container>
   );
-}
+});
+
+// export
+export default Payer;
