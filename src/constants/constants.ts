@@ -3,10 +3,6 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-export const message = `
-Thank you for being the heartbeat behind my project, your support means the world to me!
-`;
-
 export const payers = [
   {
     description: "Donate with GitHub Sponsor",

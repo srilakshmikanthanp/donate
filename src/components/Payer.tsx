@@ -3,8 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+import { Typography } from '@mui/material';
 
 /**
  * Payer Props
@@ -19,28 +21,23 @@ export interface PayerProps extends React.HTMLAttributes<HTMLDivElement> {
  * Container
  */
 const Container = styled.div`
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 50%;
   display: flex;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  text-align: center;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-
-  &:hover {
-    scale: 1.2;
-  }
+  padding: 0.5rem;
+  gap: 0.5rem;
+  cursor: pointer;
 `;
 
 /**
- * Image
+ * Icon
  */
-const Image = styled.img`
+const Icon = styled.img`
   max-height: 100%;
-  display: block;
   max-width: 100%;
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
 `;
 
 /**
@@ -48,10 +45,12 @@ const Image = styled.img`
  */
 const Payer = forwardRef<HTMLDivElement, PayerProps>((props, ref) => {
   return (
-    <Container {...props} data-tooltip-id='payer' data-tooltip-content={props.description} ref={ref}>
-      <a href={props.url} target='_blank' rel='noreferrer'>
-        <Image src={props.icon} alt={props.description} />
-      </a>
+    <Container {...props} ref={ref} onClick={ () => window.open(props.url) }>
+      <Icon src={props.icon} />
+      <Typography variant="subtitle2">
+        {props.description}
+      </Typography>
+      <KeyboardArrowRightIcon />
     </Container>
   );
 });
