@@ -5,48 +5,43 @@
 
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import { ThemeProvider, Typography, createTheme } from '@mui/material';
-
 /**
  * Container
  */
 const Container = styled.div`
-  font-family: 'Oxygen', sans-serif;
-  justify-content: center;
-  display: flex;
-  text-align: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  max-width: 800px;
+  padding: 20px;
+`;
+
+const Content = styled.a`
+  font-size: 1.7rem;
 `;
 
 /**
  * green
  */
 const Green = styled.span`
-  color: green;
+  color: #34a853;
 `;
 
 /**
  * Blue
  */
 const Blue = styled.span`
-  color: blue;
+  color: #4285f4;
 `;
 
 /**
  * Orange
  */
 const Red = styled.span`
-  color: red;
+  color: #ea4335;
 `;
 
-/**
- * Oxygen font family theme
- */
-const theme = createTheme({
-  typography: {
-    fontFamily: ['Oxygen', 'sans-serif'].join(','),
-  },
-});
 
 /**
  * Heart Component
@@ -54,13 +49,13 @@ const theme = createTheme({
 const Note = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
   return (
     <Container {...props} ref={ref}>
-      <ThemeProvider theme={theme}>
-        <Typography variant="h5" component="h2">
-          <Green>Thanks a bunch</Green> for your support, <Blue>whether big or small. </Blue>
-          Your contribution is a key part of making my
-          project happen, and <Red>I really appreciate it!</Red>
-        </Typography>
-      </ThemeProvider>
+      <Content>
+        <Green>Thanks a bunch</Green> for your support,&nbsp;
+        <Blue>whether big or small.</Blue>&nbsp;
+        Your contribution is a key part of making my&nbsp;
+        project happen, and&nbsp;
+        <Red>I really appreciate it!</Red>
+      </Content>
     </Container>
   );
 });

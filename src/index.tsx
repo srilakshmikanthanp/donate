@@ -7,6 +7,15 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import './styles/main.css';
 
+// To fix ResizeObserver loop completed with undelivered notifications.
+window.addEventListener('error', (event) => {
+  if (event.message === 'ResizeObserver loop completed with undelivered notifications.') {
+    event.stopImmediatePropagation();
+    event.preventDefault();
+    event.stopPropagation();
+  }
+});
+
 // Get the Root Element
 const rootElement = document.getElementById('root');
 

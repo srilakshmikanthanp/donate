@@ -3,10 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import { Typography } from '@mui/material';
 
 /**
  * Payer Props
@@ -27,6 +25,7 @@ const Container = styled.div`
   padding: 0.5rem;
   gap: 0.5rem;
   cursor: pointer;
+  border-radius: 100em;
 `;
 
 /**
@@ -45,12 +44,8 @@ const Icon = styled.img`
  */
 const Payer = forwardRef<HTMLDivElement, PayerProps>((props, ref) => {
   return (
-    <Container {...props} ref={ref} onClick={ () => window.open(props.url) }>
+    <Container {...props} ref={ref} onClick={() => window.open(props.url)} title={props.description}>
       <Icon src={props.icon} />
-      <Typography variant="subtitle2">
-        {props.description}
-      </Typography>
-      <KeyboardArrowRightIcon />
     </Container>
   );
 });
