@@ -5,6 +5,7 @@
 
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+
 /**
  * Container
  */
@@ -15,10 +16,6 @@ const Container = styled.div`
   display: flex;
   max-width: 800px;
   padding: 20px;
-`;
-
-const Content = styled.a`
-  font-size: 1.7rem;
 `;
 
 /**
@@ -49,13 +46,13 @@ const Red = styled.span`
 const Note = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
   return (
     <Container {...props} ref={ref}>
-      <Content>
+      <h2>
         <Green>Thanks a bunch</Green> for your support,&nbsp;
         <Blue>whether big or small.</Blue>&nbsp;
         Your contribution is a key part of making my&nbsp;
         project happen, and&nbsp;
         <Red>I really appreciate it!</Red>
-      </Content>
+      </h2>
     </Container>
   );
 });
