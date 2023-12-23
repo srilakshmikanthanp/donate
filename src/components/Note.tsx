@@ -19,6 +19,13 @@ const Container = styled.div`
 `;
 
 /**
+ * Content
+ */
+const Content = styled.a`
+  font-size: max(2.5vw, 2.5vh);
+`;
+
+/**
  * green
  */
 const Green = styled.span`
@@ -46,13 +53,13 @@ const Red = styled.span`
 const Note = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
   return (
     <Container {...props} ref={ref}>
-      <h2>
+      <Content>
         <Green>Thanks a bunch</Green> for your support,&nbsp;
         <Blue>whether big or small.</Blue>&nbsp;
         Your contribution is a key part of making my&nbsp;
         project happen, and&nbsp;
         <Red>I really appreciate it!</Red>
-      </h2>
+      </Content>
     </Container>
   );
 });
