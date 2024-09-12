@@ -28,7 +28,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build --cname clipbird.srilakshmikanthanp.com",
+    "deploy": "gh-pages -d build --cname donate.srilakshmikanthanp.com",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
