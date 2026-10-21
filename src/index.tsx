@@ -2,24 +2,13 @@
 //
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './index.css';
 
-import ReactDOM from "react-dom";
-import App from "./App";
-import './styles/main.css';
-
-// To fix ResizeObserver loop completed with undelivered notifications.
-window.addEventListener('error', (event) => {
-  if (event.message === 'ResizeObserver loop completed with undelivered notifications.') {
-    event.stopImmediatePropagation();
-    event.preventDefault();
-  }
-});
-
-// Get the Root Element
-const rootElement = document.getElementById('root');
-
-// Element
-const element = <App />;
-
-// Render Element
-ReactDOM.render(element, rootElement);
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

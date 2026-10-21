@@ -1,0 +1,55 @@
+/**
+ * Copyright (c) 2023 Sri Lakshmi Kanthan P
+ *
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono&display=swap');
+@import 'tailwindcss';
+
+/* Light colors, named by purpose */
+@theme {
+  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-fg: #0f172a;
+  --color-text: #475569;
+  --color-muted: #64748b;
+  --color-line: #e2e8f0;
+  --color-primary: #0d9488;
+  --color-primary-soft: rgb(13 148 136 / 0.1);
+}
+
+/* Dark colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-fg: #e2e8f0;
+    --color-text: #94a3b8;
+    --color-muted: #64748b;
+    --color-line: #334155;
+    --color-primary: #5eead4;
+    --color-primary-soft: rgb(94 234 212 / 0.1);
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply bg-bg font-sans leading-relaxed text-text antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-fg;
+  }
+
+  :focus-visible {
+    @apply rounded-md outline-2 outline-offset-3 outline-primary;
+  }
+}
